@@ -1,9 +1,17 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  
 
-  private
-  def current_user
-  	@current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-  helper_method :current_user
+def after_sign_in_path_for(resource)
+	home_path
+end
+
+def after_sign_out_path_for(resource)
+	respond_to?(:root_path) ? root_path : "/"
+end
+
+
+
+
+    protect_from_forgery
+  
 end
