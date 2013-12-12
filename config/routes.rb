@@ -64,8 +64,7 @@ DemoBlog::Application.routes.draw do
       root to: "devise/sessions#new"
     end
 
-    match 'sign_up' => 'users#new', :via => :get
-    match 'home' => 'articles#index', :via => :get
+    match 'home' => 'home#index', :via => :get
 
   # See how all your routes lay out with "rake routes"
 
